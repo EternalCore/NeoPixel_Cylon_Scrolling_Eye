@@ -1,5 +1,12 @@
-//NeoPixel LED Digital Strip Cylon Eye v1.02 Created by EternalCore
+//NeoPixel LED Digital Strip Cylon Eye v1.03 Created by EternalCore
 #include <Adafruit_NeoPixel.h>
+
+//Settings:
+#define PIN 6 //The Pin out your Neopixel DIN strip/stick is connected to (Default is 6)
+#define TPIXEL 60 //The total amount of pixel's/led's in your connected strip/stick (Default is 60)
+int wait_T=40; //This is the delay between moving back and forth and per pixel
+int PixelCount=60; //Set this to the AMOUNT of Led's/Pixels you have or want to use on your strip And It can be used to tell where to Stop then return the eye at in the strip
+int Pixel_Start_End=0; //Set this to where you want it to Start/End at
 // Parameter 1 = number of pixels in strip
 // Parameter 2 = pin number (most are valid)
 // Parameter 3 = pixel type flags, add together as needed:
@@ -7,8 +14,7 @@
 //   NEO_GRB     Pixels are wired for GRB bitstream
 //   NEO_KHZ400  400 KHz bitstream (e.g. FLORA pixels)
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip)
-#define PIN 6
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(TPIXEL, PIN, NEO_GRB + NEO_KHZ800); //Standered Strip function
 
 void setup() {
   strip.begin();
@@ -16,14 +22,11 @@ void setup() {
   //Serial.begin(9600); //Used For pixel Count Debugging
 }
 void loop() {
-  int wait_T=40; //This is the delay between moving back and forth and per pixel
-  int PixelCount=60; //Set this to the AMOUNT of Led's/Pixels you have on your strip And It can be used to tell where to Stop then return the eye at in the strip
-  int Pixel_Start_End=0; //Set this to where you want it to Start/End at
   //Example: CylonEyeUp(Center_Dot_Color, Second_Dot_color, Third_Dot_color, wait_T, PixelCount, Pixel_Start_End);
-  CylonEyeUp(strip.Color(155,0,0), strip.Color(25,0,0), strip.Color(10,0,0), wait_T, PixelCount, Pixel_Start_End);
+  CylonEyeUp(strip.Color(175,0,0), strip.Color(25,0,0), strip.Color(10,0,0), wait_T, PixelCount, Pixel_Start_End);
   delay(wait_T);
   //Example: CylonEyeDown(Center_Dot_Color, Second_Dot_color, Third_Dot_color, wait_T, PixelCount, Pixel_Start_End);
-  CylonEyeDown(strip.Color(155,0,0), strip.Color(25,0,0), strip.Color(10,0,0), wait_T, PixelCount, Pixel_Start_End);
+  CylonEyeDown(strip.Color(175,0,0), strip.Color(25,0,0), strip.Color(10,0,0), wait_T, PixelCount, Pixel_Start_End);
   delay(wait_T);
 }
 
