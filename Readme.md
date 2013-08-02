@@ -1,4 +1,4 @@
-NeoPixel Digital LED Strip Cylon Eye v1.02 Created by EternalCore.
+NeoPixel Digital LED Strip Cylon Eye v1.03 Created by EternalCore.
 
 Things you will need:
 1x Strip of the NeoPixel: http://www.adafruit.com/products/1376 (or you can use the NeoPixel stick -> http://www.adafruit.com/products/1426 but then the code will have to be modified)
