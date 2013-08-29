@@ -4,6 +4,7 @@
 //Settings:
 #define PIN 6 //The Pin out your Neopixel DIN strip/stick is connected to (Default is 6)
 #define TPIXEL 60 //The total amount of pixel's/led's in your connected strip/stick (Default is 60)
+//To change the timing of between pulses change the number in int 'refresh', to change the speed of it scrolling change the number in int 'wait_T' and 1000 is equal to 1second. 
 int wait_T=40; //This is the delay between moving back and forth and per pixel
 int refresh=400;
 int PixelCount=60; //Set this to the AMOUNT of Led's/Pixels you have or want to use on your strip And It can be used to tell where to Stop then return the eye at in the strip
@@ -32,8 +33,9 @@ void loop() {
   CylonEyeClear(wait_T,PixelCount, Pixel_Start_End);
   delay(refresh);
 }
+
 void CylonEyeClear(uint8_t Delay, int TotalPixels, int pStart) {
-  for(int i=pStart; i<TotalPixels; i++) {
+  for(int i=pStart; i<TotalPixels+2; i++) {
     strip.setPixelColor(i, strip.Color(0,0,0)); //Clears the dots
      strip.show();
     //Serial.println(i); //Used For pixel Count Debugging
