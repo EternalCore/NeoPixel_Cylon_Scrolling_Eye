@@ -30,7 +30,8 @@ void loop() {
   //Example: CylonEyeDown(Center_Dot_Color, Second_Dot_color, Third_Dot_color, wait_T, PixelCount, Pixel_Start_End);
   //CylonEyeDown(strip.Color(175,0,0), strip.Color(25,0,0), strip.Color(10,0,0), wait_T, PixelCount, Pixel_Start_End);
   //delay(wait_T);
-  CylonEyeClear(wait_T,PixelCount, Pixel_Start_End);
+  //Example: CylonEyeClear(wait_T, PixelCount, Pixel_Start_End);
+  CylonEyeClear(wait_T, PixelCount, Pixel_Start_End);
   delay(refresh);
 }
 
@@ -50,7 +51,7 @@ void CylonEyeUp(uint32_t Co, uint32_t Ct, uint32_t Ctt, uint8_t Delay, int Total
     strip.setPixelColor(i-1, Ct);   //Second Dot Color
     //strip.setPixelColor(i-2, Ctt);  //Third Dot Color
 
-    strip.setPixelColor(i-3, strip.Color(0,0,0)); //Clears the dots after the 3rd color
+    strip.setPixelColor(i-2, strip.Color(0,0,0)); //Clears the dots after the 2nd/3rd color
     strip.show();
     //Serial.println(i); //Used For pixel Count Debugging
     delay(Delay);
